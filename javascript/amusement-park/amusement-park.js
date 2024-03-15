@@ -54,11 +54,12 @@ export function ticketStatus(tickets, ticketId) {
  * @returns {string} ticket status
  */
 export function simpleTicketStatus(tickets, ticketId) {
-  if (tickets[ticketId] || tickets.hasOwnProperty(ticketId) && tickets[ticketId] !== null){
-    return tickets[ticketId]
-  } else {
-    return 'invalid ticket !!!'
-  }
+  // if (tickets[ticketId] || tickets.hasOwnProperty(ticketId) && tickets[ticketId] !== null){
+  //   return tickets[ticketId]
+  // } else {
+  //   return 'invalid ticket !!!'
+  // }
+  return tickets[ticketId] ?? 'invalid ticket !!!'
 }
 
 /**
