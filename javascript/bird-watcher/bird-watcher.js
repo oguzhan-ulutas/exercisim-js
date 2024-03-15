@@ -28,7 +28,14 @@ export function totalBirdCount(birdsPerDay) {
  * @returns {number} birds counted in the given week
  */
 export function birdsInWeek(birdsPerDay, week) {
-  throw new Error('Please implement the birdsInWeek function');
+  const lastDayOfWeek = (7 * week) - 1
+  let count = 0
+
+  for (let i = lastDayOfWeek - 6; i <=lastDayOfWeek; i++) {
+    count += birdsPerDay[i]
+  }
+
+  return count
 }
 
 /**
@@ -39,5 +46,9 @@ export function birdsInWeek(birdsPerDay, week) {
  * @returns {number[]} corrected bird count data
  */
 export function fixBirdCountLog(birdsPerDay) {
-  throw new Error('Please implement the fixBirdCountLog function');
+  for (let i = 0; i < birdsPerDay.length; i++) {
+    i % 2 === 0?birdsPerDay[i]+=1:null
+    }
+
+  return birdsPerDay
 }
