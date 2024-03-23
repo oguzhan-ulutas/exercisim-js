@@ -8,7 +8,9 @@
  * @returns {number[]} deck with every card doubled
  */
 export function seeingDouble(deck) {
-  throw new Error('Implement the seeingDouble function');
+  const doubleDeck = deck.map(element => element * 2)
+
+  return doubleDeck
 }
 
 /**
@@ -19,7 +21,16 @@ export function seeingDouble(deck) {
  * @returns {number[]} deck with triplicate 3s
  */
 export function threeOfEachThree(deck) {
-  throw new Error('Implement the threeOfEachThree function');
+  const newDeck = []
+  for (let index in deck) {
+    newDeck.push(deck[index])
+    if (deck[index] === 3) {
+      newDeck.push(3)
+      newDeck.push(3)
+    }
+  }
+
+  return newDeck
 }
 
 /**
@@ -31,7 +42,9 @@ export function threeOfEachThree(deck) {
  * @returns {number[]} deck with only two middle cards
  */
 export function middleTwo(deck) {
-  throw new Error('Implement the middleTwo function');
+  const newDeck = [deck[4], deck[5]]
+
+  return newDeck
 }
 
 /**
@@ -43,7 +56,29 @@ export function middleTwo(deck) {
  */
 
 export function sandwichTrick(deck) {
-  throw new Error('Implement the sandwichTrick function');
+  const middleIndex = (deck.length / 2)
+  const firstItem = deck[0]
+  const lastItem = deck[deck.length - 1]
+  const newDeck = []
+
+  if (middleIndex === 1) {
+    newDeck.push(lastItem)
+      newDeck.push(firstItem)
+  }
+
+  for (let index = 1 ; index < deck.length - 1; index++) {
+
+    if (index === middleIndex) {
+      newDeck.push(lastItem)
+      newDeck.push(firstItem)
+      
+    }
+
+    newDeck.push(deck[index])
+
+  }
+  
+  return newDeck
 }
 
 /**
@@ -54,7 +89,9 @@ export function sandwichTrick(deck) {
  * @returns {number[]} deck with only 2s
  */
 export function twoIsSpecial(deck) {
-  throw new Error('Implement the twoIsSpecial function');
+ const newDeck = deck.filter(item => item === 2)
+
+  return newDeck
 }
 
 /**
@@ -65,7 +102,9 @@ export function twoIsSpecial(deck) {
  * @returns {number[]} ordered deck
  */
 export function perfectlyOrdered(deck) {
-  throw new Error('Implement the perfectlyOrdered function');
+ const newDeck = deck.sort((a,b)=>a-b)
+
+ return newDeck
 }
 
 /**
@@ -76,5 +115,6 @@ export function perfectlyOrdered(deck) {
  * @returns {number[]} reordered deck
  */
 export function reorder(deck) {
-  throw new Error('Implement the reorder function');
+  
+  return deck.reverse()
 }
