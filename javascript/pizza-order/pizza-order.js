@@ -11,7 +11,22 @@
  * @returns {number} the price of the pizza
  */
 export function pizzaPrice(pizza, ...extras) {
-  throw new Error('Please implement the pizzaPrice function');
+  const priceMap = {
+    "Margherita": 7,
+    "Caprese": 9,
+    "Formaggio": 10,
+    "ExtraSauce": 1,
+    "ExtraToppings": 2
+  }
+  
+  if (extras.length === 0) {
+    return priceMap[pizza]
+   
+  } else {
+    const extra = extras.shift()
+    return priceMap[extra] + pizzaPrice(pizza, ...extras)
+  }
+   
 }
 
 /**
@@ -21,5 +36,6 @@ export function pizzaPrice(pizza, ...extras) {
  * @returns {number} the price of the total order
  */
 export function orderPrice(pizzaOrders) {
-  throw new Error('Please implement the orderPrice function');
+
+   return pizzaOrders.reduce((acc, order) => acc + pizzaPrice(order.pizza, ...order.extras), 0 )
 }
